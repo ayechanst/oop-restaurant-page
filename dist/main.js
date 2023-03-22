@@ -1,1 +1,1 @@
-console.log("aup");
+(()=>{var __webpack_exports__={};class God{constructor(e,t,a,s){this.varName=e,this.element=t,this.glass=a,this.parent=s}makeElement(){console.log(eval(`const ${this.varName} = 'butt'`))}}const head=new God("head","div","head","content");head.makeElement()})();
