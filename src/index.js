@@ -1,27 +1,28 @@
 // this file is in charge of storing the constructor functions that will do all the work for me
+const content = document.getElementById('content');
 
 class God {
-  constructor(varName, element, glass, parent) {
-    this.varName = varName;
-    this.element = element;
-    this.glass = glass;
-    this.parent = parent;
+  makeElement(element, className, innerHTML, ...children) {
+    const newElement = document.createElement(element);
+    newElement.className = className;
+    newElement.innerHTML = innerHTML;
+    if (children) {
+      children.forEach((child) => {
+        newElement.appendChild(child);
+      });
+    }
+    return newElement;
   }
-  makeElement() {
-    // returns a string
-    console.log(
-      //   eval(`const ${this.varName} = document.createElement(${this.element})`),
-
-      eval(`const ${this.varName} = 'butt'`),
-      //currently undefined
-    );
-    // console.log('test worked so far');
-  }
-  //   classAndAppend() {
-  //     console.log('bing xilling' + this.parent);
-  //   }
 }
 
-const head = new God('head', 'div', 'head', 'content');
-
-head.makeElement();
+const god = new God();
+const make = god.makeElement;
+content.appendChild(
+  make('div', 'head', '', 
+    make('div', 'holder', '',
+      make('h1', 'fart', 'im a child'),
+     ),
+    make('h1', 'dog', 'for'),
+    make('h1', 'yup', 'goo'),
+  )
+);
