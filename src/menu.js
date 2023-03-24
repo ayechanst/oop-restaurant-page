@@ -1,34 +1,39 @@
 import { content } from "./index.js";
 import { God } from "./index.js"
 
-export function skeleton() {
-    let head = new God()
-    let title = new God()
-    let menuButton = new God()
-    let aboutButton = new God()
-    let homeButton = new God()
-    head = head.makeElement('div', 'banner', null,
-        title.makeElement('h1', 'title', 'The Feral Fox\'s Food'),
-        menuButton.makeElement('button', 'menu', 'Menu'),
-        aboutButton.makeElement('button', 'about', 'About'),
-        homeButton.makeElement('button', 'home', 'Home')
-        )
-    content.appendChild(head)
-
-    let body = new God()
-    body = body.makeElement('div', 'body', null)
-    content.appendChild(body)
-
-    let footer = new God()
-    let contactUs = new God()
-    let leaveAReview = new God()
-    let about = new God()
-    let blog = new God()
-    footer = footer.makeElement('div', 'footer', 
-        links.makeElement('div', 'footer-container', 
-        contactUs.makeElement('a', 'footer-link', 'Contact Us'),
-        leaveAReview.makeElement('a', 'footer-link', 'Leave A Review'),
-        about.makeElement('a', 'footer-link', 'About'),
-        blog.makeElement('a', 'footer-container', 'Blog')
+class MenuItem {
+    constructor(dish, price, description, imageLink) {
+        this.dish = dish
+        this.price = price
+        this.description = description
+        this.imageLink = imageLink 
+    }
+    createGod() {
+        let cardContainer = new God()
+        let dish = new God()
+        let price = new God()
+        let description = new God()
+        let cardImageContainer = new God()
+        let imageWrapper = new God()
+        cardContainer.makeElement('div', 'card-container', null,
+        dish.makeElement('div', 'dish', this.dish))
+        price.makeElement('div', 'price', this.price) 
+        description.makeElement('div', 'description', this.description)
+        imageLink.makeElement('div', 'image-wrapper', null, 
+        cardImageContainer.makeElement('div', 'card-image-container', null, 
+        imageWrapper.makeElement('div', 'image-wrapper', null)
         ))
+    }
+
+}
+
+function menu() {
+    let menuCardContainer = new God()
+    let cardContainer = new God()
+    let card = new God()
+    
+    menuCardContainer.makeElement('div', 'menu-card-container', null, 
+    // for each element in my array I need to make a card
+    cardContainer.makeElement('div', 'card-container', null,))
+    
 }
